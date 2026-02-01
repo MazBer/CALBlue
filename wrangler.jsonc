@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "my-astro-app",
+	"name": "calblue",
 	"main": "./dist/_worker.js/index.js",
 	"compatibility_date": "2025-09-27",
 	"compatibility_flags": [
