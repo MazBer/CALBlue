@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About / Team | CALBlue" description="About the CALBlue team and project.">
+  <section
+    class="relative flex flex-col items-center justify-center min-h-[520px] w-full bg-cover bg-center bg-no-repeat"
+    style={{
+      backgroundImage:
+        "linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.45) 100%), url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=2400&q=60')"
+    }}
+  >
+    <div class="flex flex-col gap-4 text-center max-w-[900px] px-4">
+      <div class="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-1.5 mb-2 mx-auto border border-white/30">
+        <span class="material-symbols-outlined text-accent-yellow text-sm">stars</span>
+        <span class="text-white text-xs font-bold uppercase tracking-widest">Our Mission</span>
+      </div>
+
+      <h1
+        class="text-white font-display text-5xl md:text-7xl font-black leading-tight tracking-[-0.033em] drop-shadow-lg"
+        style="text-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+      >
+        The CALBlue Quest
+      </h1>
+
+      <h2 class="text-gray-100 text-lg md:text-2xl font-medium leading-normal drop-shadow-md">
+        Becoming guardians of the deep blue — through students, stories, and action.
+      </h2>
+
+      <div class="mt-6">
+        <a
+          class="inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-2xl h-14 px-10 bg-accent-yellow hover:bg-yellow-400 text-ocean-dark text-lg font-display font-black leading-normal tracking-[0.015em] transition-transform transform hover:scale-105 shadow-[0_4px_0_rgb(180,83,9)] active:shadow-none active:translate-y-1"
+          href="/articles"
+        >
+          <span class="mr-2">Start the Journey</span>
+          <span class="material-symbols-outlined">anchor</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wavy-bg py-20 px-4 md:px-10 relative overflow-hidden">
+    <div class="max-w-[960px] mx-auto flex flex-col items-center text-center relative z-0">
+      <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary border-4 border-white shadow-sm">
+        <span class="material-symbols-outlined text-3xl">explore</span>
+      </div>
+      <h2 class="text-[#111418] dark:text-white text-[40px] font-display font-black leading-tight pb-6">The Quest</h2>
+      <p class="text-[#111418] dark:text-gray-300 text-xl md:text-2xl font-medium leading-relaxed max-w-[820px]">
+        CALBlue is the Blue School project of Cağaloğlu Anadolu Lisesi. We turn learning into action: we share
+        articles, run events, and document our progress with galleries.
+      </p>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
+      <svg class="relative block w-[calc(100%+1.3px)] h-[50px] text-white dark:text-[#15202b]" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
+      </svg>
+    </div>
+  </section>
+
+  <section class="bg-white dark:bg-[#15202b] py-16 px-4 md:px-10">
+    <div class="max-w-[1080px] mx-auto">
+      <div class="text-center mb-10">
+        <h3 class="uppercase tracking-widest text-primary font-display font-black text-sm mb-2">Expedition Log</h3>
+        <h2 class="text-3xl font-display font-black text-[#111418] dark:text-white">Achievements</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="relative group">
+          <div class="absolute inset-0 bg-primary/5 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform"></div>
+          <div class="relative flex flex-col items-center gap-2 rounded-2xl p-8 bg-white dark:bg-[#1e2936] text-center shadow-lg border-2 border-transparent group-hover:border-primary/20 transition-all">
+            <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full mb-2">
+              <span class="material-symbols-outlined text-primary text-3xl">recycling</span>
+            </div>
+            <p class="text-[#111418] dark:text-gray-200 text-sm font-black uppercase tracking-wider opacity-70">Waste Collected</p>
+            <p class="text-[#111418] dark:text-white text-5xl font-display font-black leading-tight text-primary">0<span class="text-2xl">kg</span></p>
+          </div>
+        </div>
+
+        <div class="relative group md:mt-0">
+          <div class="absolute inset-0 bg-accent-yellow/10 rounded-2xl transform -rotate-2 group-hover:-rotate-4 transition-transform"></div>
+          <div class="relative flex flex-col items-center gap-2 rounded-2xl p-8 bg-white dark:bg-[#1e2936] text-center shadow-lg border-2 border-transparent group-hover:border-accent-yellow/30 transition-all">
+            <div class="bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-full mb-2">
+              <span class="material-symbols-outlined text-accent-yellow text-3xl">groups</span>
+            </div>
+            <p class="text-[#111418] dark:text-gray-200 text-sm font-black uppercase tracking-wider opacity-70">Students Involved</p>
+            <p class="text-[#111418] dark:text-white text-5xl font-display font-black leading-tight text-accent-yellow">0<span class="text-2xl">+</span></p>
+          </div>
+        </div>
+
+        <div class="relative group md:mt-0">
+          <div class="absolute inset-0 bg-green-500/5 rounded-2xl transform rotate-1 group-hover:rotate-3 transition-transform"></div>
+          <div class="relative flex flex-col items-center gap-2 rounded-2xl p-8 bg-white dark:bg-[#1e2936] text-center shadow-lg border-2 border-transparent group-hover:border-green-500/20 transition-all">
+            <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-full mb-2">
+              <span class="material-symbols-outlined text-green-600 text-3xl">event</span>
+            </div>
+            <p class="text-[#111418] dark:text-gray-200 text-sm font-black uppercase tracking-wider opacity-70">Events Hosted</p>
+            <p class="text-[#111418] dark:text-white text-5xl font-display font-black leading-tight text-green-600">0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#f0f9ff] dark:bg-[#0f161e] py-24 px-4 md:px-10 relative overflow-hidden">
+    <div class="max-w-[1080px] mx-auto relative z-10">
+      <div class="text-center mb-20">
+        <div class="inline-block p-3 rounded-full bg-white dark:bg-[#1e2936] shadow-md mb-4 rotate-12">
+          <span class="material-symbols-outlined text-4xl text-primary">map</span>
+        </div>
+        <h2 class="text-[#111418] dark:text-white text-[40px] font-display font-black leading-tight">Our Treasure Map</h2>
+        <p class="text-gray-600 dark:text-gray-400 mt-2 text-lg font-medium">A simple timeline for what we’re building next.</p>
+      </div>
+
+      <div class="relative">
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 md:w-1 map-path-dashed md:-translate-x-1/2 opacity-30 h-[90%]"></div>
+
+        <div class="relative flex flex-col md:flex-row items-center justify-between mb-16 group">
+          <div class="md:w-[45%] pl-12 md:pl-0 md:text-right order-1">
+            <div class="bg-white dark:bg-[#1e2936] p-6 rounded-2xl shadow-lg border-b-4 border-primary relative transform transition-transform hover:-translate-y-1 hover:rotate-1">
+              <div class="md:hidden absolute top-6 -left-[50px] w-5 h-5 rounded-full bg-primary border-4 border-[#f0f9ff] z-20"></div>
+              <h3 class="font-black text-xl text-[#111418] dark:text-white mb-2 font-display">Website Launch</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">Publishing articles and galleries consistently.</p>
+              <span class="inline-block mt-3 px-3 py-1 bg-blue-100 text-primary text-xs font-black rounded-full">Checkpoint: Now</span>
+            </div>
+          </div>
+          <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-primary items-center justify-center z-20 shadow-sm text-primary font-black">1</div>
+          <div class="md:w-[45%] order-2"></div>
+        </div>
+
+        <div class="relative flex flex-col md:flex-row items-center justify-between mb-16 group">
+          <div class="md:w-[45%] order-2 md:order-1"></div>
+          <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-primary items-center justify-center z-20 shadow-sm text-primary font-black">2</div>
+          <div class="md:w-[45%] pl-12 md:pl-0 order-1 md:order-2">
+            <div class="bg-white dark:bg-[#1e2936] p-6 rounded-2xl shadow-lg border-b-4 border-accent-yellow relative transform transition-transform hover:-translate-y-1 hover:-rotate-1">
+              <div class="md:hidden absolute top-6 -left-[50px] w-5 h-5 rounded-full bg-accent-yellow border-4 border-[#f0f9ff] z-20"></div>
+              <h3 class="font-black text-xl text-[#111418] dark:text-white mb-2 font-display">Monthly Events</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">Regular cleanups and workshops with photos and write-ups.</p>
+              <span class="inline-block mt-3 px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-black rounded-full">Checkpoint: Next</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative flex flex-col md:flex-row items-center justify-between group">
+          <div class="md:w-[45%] pl-12 md:pl-0 md:text-right order-1">
+            <div class="bg-white dark:bg-[#1e2936] p-6 rounded-2xl shadow-lg border-b-4 border-green-500 relative transform transition-transform hover:-translate-y-1 hover:rotate-1">
+              <div class="md:hidden absolute top-6 -left-[50px] w-5 h-5 rounded-full bg-green-500 border-4 border-[#f0f9ff] z-20"></div>
+              <h3 class="font-black text-xl text-[#111418] dark:text-white mb-2 font-display">Bigger Impact</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">Partner projects, awareness campaigns, and measurable results.</p>
+              <span class="inline-block mt-3 px-3 py-1 bg-green-100 text-green-800 text-xs font-black rounded-full">Status: Ongoing</span>
+            </div>
+          </div>
+          <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-primary items-center justify-center z-20 shadow-sm text-primary font-black">3</div>
+          <div class="md:w-[45%] order-2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white dark:bg-[#15202b] py-20 px-4 md:px-10 border-t border-gray-100 dark:border-gray-800">
+    <div class="max-w-[960px] mx-auto text-center">
+      <h2 class="text-[#111418] dark:text-white text-[40px] font-display font-black leading-tight mb-4">Meet the Crew</h2>
+      <p class="text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto font-medium">
+        Replace these placeholders with your team members and roles.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div class="flex flex-col items-center group relative">
+          <div class="w-full bg-white dark:bg-[#1e2936] rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 dark:border-gray-700 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2">
+            <div class="bg-primary/10 py-2 border-b border-primary/10">
+              <span class="text-primary font-black uppercase tracking-widest text-xs">Coordinator</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-[#111418] dark:text-white text-xl font-black font-display">Student Name</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-3">Role / responsibility</p>
+              <div class="w-full h-px bg-gray-100 dark:bg-gray-700 mb-3"></div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed font-medium">Short bio for the team member.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center group relative">
+          <div class="w-full bg-white dark:bg-[#1e2936] rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 dark:border-gray-700 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2">
+            <div class="bg-primary/10 py-2 border-b border-primary/10">
+              <span class="text-primary font-black uppercase tracking-widest text-xs">Writer</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-[#111418] dark:text-white text-xl font-black font-display">Student Name</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-3">Articles / research</p>
+              <div class="w-full h-px bg-gray-100 dark:bg-gray-700 mb-3"></div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed font-medium">Short bio for the team member.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center group relative">
+          <div class="w-full bg-white dark:bg-[#1e2936] rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 dark:border-gray-700 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2">
+            <div class="bg-primary/10 py-2 border-b border-primary/10">
+              <span class="text-primary font-black uppercase tracking-widest text-xs">Media</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-[#111418] dark:text-white text-xl font-black font-display">Student Name</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-3">Photos / design</p>
+              <div class="w-full h-px bg-gray-100 dark:bg-gray-700 mb-3"></div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed font-medium">Short bio for the team member.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

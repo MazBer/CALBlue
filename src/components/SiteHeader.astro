@@ -1,0 +1,53 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/articles', label: 'Articles' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' }
+];
+---
+
+<header class="sticky top-0 z-40 w-full bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b-4 border-primary/20">
+  <div class="px-4 md:px-10 py-3 flex items-center justify-between max-w-7xl mx-auto w-full relative">
+    <a class="flex items-center gap-2 text-primary group" href="/">
+      <div class="relative w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full group-hover:rotate-12 transition-transform">
+        <span class="material-symbols-outlined text-2xl">sailing</span>
+      </div>
+      <div class="flex flex-col leading-none">
+        <span class="text-[#0a2a4d] dark:text-white text-2xl font-display font-black tracking-tight group-hover:text-primary transition-colors">CALBlue</span>
+        <span class="text-xs font-bold tracking-wide text-gray-500 dark:text-gray-300">Cağaloğlu Anadolu Lisesi</span>
+      </div>
+    </a>
+
+    <div class="hidden md:flex flex-1 justify-end items-center gap-6">
+      <nav class="flex items-center gap-6">
+        {nav.map((item) => (
+          <a
+            class="text-base font-display font-bold text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors hover:scale-105 transform inline-block"
+            href={item.href}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <ThemeToggle />
+    </div>
+
+    <div class="md:hidden">
+      <ThemeToggle />
+    </div>
+  </div>
+
+  <div class="absolute -bottom-3 left-0 w-full overflow-hidden leading-none z-[-1]">
+    <svg class="block w-full h-4 text-blue-50/50" preserveAspectRatio="none" viewBox="0 0 1200 120">
+      <path
+        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</header>

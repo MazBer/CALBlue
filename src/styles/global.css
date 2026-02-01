@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.wave-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+@media (min-width: 768px) {
+  .wave-divider svg {
+    height: 120px;
+  }
+}
+
+.decoration-fish {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.wavy-bg {
+  background-color: #f6f7f8;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(210, 83%, 93%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(200, 80%, 96%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(210, 83%, 93%, 1) 0, transparent 50%);
+}
+
+.dark .wavy-bg {
+  background-color: #101922;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(210, 83%, 15%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(200, 80%, 12%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(210, 83%, 15%, 1) 0, transparent 50%);
+}
+
+.map-path-dashed {
+  background-image: linear-gradient(to bottom, #137fec 50%, transparent 50%);
+  background-size: 2px 20px;
+  background-repeat: repeat-y;
+}

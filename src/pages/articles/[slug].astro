@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatDate } from '../../utils/formatDate';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  entry: CollectionEntry<'articles'>;
+};
+
+export async function getStaticPaths() {
+  const entries = await getCollection('articles', ({ data }) => !data.draft);
+  return entries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props as Props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={`${entry.data.title} | CALBlue`} description={entry.data.description ?? 'CALBlue article'}>
+  <article class="w-full max-w-3xl mx-auto px-4 md:px-10 py-12 md:py-16">
+    <a class="text-primary font-bold inline-flex items-center gap-2" href="/articles">
+      <span class="material-symbols-outlined">arrow_back</span> Back to Articles
+    </a>
+
+    <header class="mt-6">
+      <h1 class="text-[#0a2a4d] dark:text-white text-4xl md:text-5xl font-display font-black tracking-tight">
+        {entry.data.title}
+      </h1>
+
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-sm font-bold text-gray-500 dark:text-gray-300">
+        <span>{formatDate(entry.data.pubDate)}</span>
+        {entry.data.location ? <span>• {entry.data.location}</span> : null}
+        {entry.data.eventDate ? <span>• Event: {formatDate(entry.data.eventDate)}</span> : null}
+      </div>
+
+      {entry.data.tags?.length ? (
+        <div class="mt-4 flex flex-wrap gap-2">
+          {entry.data.tags.map((t) => (
+            <a class="text-xs font-bold px-3 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors" href={`/articles?tag=${encodeURIComponent(t)}`}>
+              {t}
+            </a>
+          ))}
+        </div>
+      ) : null}
+
+      <div class="mt-8 rounded-3xl overflow-hidden shadow-lg border border-gray-200 dark:border-white/10">
+        <img
+          class="w-full h-auto"
+          src={
+            entry.data.coverImage ??
+            'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=60'
+          }
+          alt={entry.data.title}
+          loading="lazy"
+          decoding="async"
+          referrerpolicy="no-referrer"
+          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=60';"
+        />
+      </div>
+    </header>
+
+    <div class="mt-10 prose prose-lg max-w-none dark:prose-invert">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

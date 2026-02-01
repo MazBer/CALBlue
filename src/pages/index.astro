@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="CALBlue" description="CALBlue — Blue School project by Cağaloğlu Anadolu Lisesi.">
+  <section class="relative w-full h-[650px] flex items-center justify-center overflow-hidden">
+    <div
+      class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage:
+          "linear-gradient(to bottom, rgba(10, 42, 77, 0.3), rgba(19, 127, 236, 0.6)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=60')"
+      }}
+    />
+
+    <div class="relative z-10 container mx-auto px-4 md:px-10 text-center flex flex-col items-center gap-8 max-w-5xl pt-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white font-display font-bold text-sm mb-2 transform hover:scale-105 transition-transform">
+        <span class="text-xl">🌊</span> Welcome to CALBlue
+      </div>
+
+      <h1 class="text-white font-display text-5xl md:text-7xl font-black leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+        Protecting our oceans,<br class="hidden md:block" /> one student at a time.
+      </h1>
+
+      <h2 class="text-blue-50 text-xl md:text-2xl font-medium max-w-3xl leading-relaxed drop-shadow font-display">
+        Articles, events, and photo galleries from Cağaloğlu Anadolu Lisesi’s Blue School project.
+      </h2>
+
+      <div class="flex flex-col sm:flex-row gap-5 mt-6">
+        <a
+          class="bg-accent-yellow hover:bg-yellow-400 text-ocean-dark text-lg font-display font-black h-14 px-10 rounded-full shadow-lg shadow-yellow-500/30 transition-all transform hover:scale-110 hover:-rotate-2 border-b-4 border-yellow-600/20 flex items-center justify-center"
+          href="/articles"
+        >
+          Start Exploring
+        </a>
+        <a
+          class="bg-white hover:bg-blue-50 text-primary text-lg font-display font-black h-14 px-10 rounded-full shadow-lg transition-transform transition-shadow hover:shadow-xl transform hover:scale-105 flex items-center gap-2 justify-center"
+          href="/gallery"
+        >
+          <span class="material-symbols-outlined text-[22px] leading-none">photo_library</span> View Gallery
+        </a>
+      </div>
+    </div>
+
+    <div class="wave-divider text-background-light dark:text-background-dark">
+      <svg
+        class="absolute bottom-0 left-0 w-full h-full opacity-50 text-blue-200 transform translate-y-2 scale-y-[-1.1]"
+        preserveAspectRatio="none"
+        viewBox="0 0 1200 120"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+          fill="currentColor"
+          opacity=".25"
+        />
+      </svg>
+      <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" style="transform: scaleY(-1);">
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </section>
+
+  <section class="w-full max-w-7xl mx-auto px-4 md:px-10 py-16 md:py-24">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+      <div>
+        <h2 class="text-[#0a2a4d] dark:text-white text-4xl font-display font-black leading-tight tracking-tight">Latest Articles</h2>
+        <p class="text-gray-600 dark:text-gray-400 mt-2 font-medium text-lg">Updates and stories from CALBlue.</p>
+      </div>
+      <a class="hidden md:flex bg-white dark:bg-[#1a2c38] text-primary font-display font-bold items-center gap-2 px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all" href="/articles">
+        View All <span class="material-symbols-outlined text-lg">arrow_forward</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {articles.map((entry) => (
+        <PostCard
+          href={`/articles/${entry.slug}`}
+          title={entry.data.title}
+          description={entry.data.description}
+          pubDate={entry.data.pubDate}
+          tags={entry.data.tags}
+          coverImage={entry.data.coverImage}
+          badge="📝 Article"
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

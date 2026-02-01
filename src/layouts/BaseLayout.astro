@@ -1,0 +1,45 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/global.css';
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = 'CALBlue',
+  description = 'CALBlue — Cağaloğlu Anadolu Lisesi Blue School project.'
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Inter:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-body overflow-x-hidden">
+    <div class="relative flex flex-col min-h-screen w-full">
+      <SiteHeader />
+      <main class="flex-grow flex flex-col w-full">
+        <slot />
+      </main>
+      <SiteFooter />
+    </div>
+  </body>
+</html>

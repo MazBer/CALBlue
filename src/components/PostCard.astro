@@ -1,0 +1,75 @@
+---
+import { formatDate } from '../utils/formatDate';
+
+type Props = {
+  href: string;
+  title: string;
+  description?: string;
+  pubDate: Date;
+  tags?: string[];
+  coverImage?: string;
+  badge?: string;
+};
+
+const { href, title, description, pubDate, tags = [], coverImage, badge } = Astro.props;
+const fallbackImage = 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=60';
+const imageSrc = coverImage ?? fallbackImage;
+---
+
+<article
+  class="flex flex-col bg-white dark:bg-[#1a2c38] rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-transform transition-shadow duration-300 group hover:-translate-y-2 ring-2 ring-transparent hover:ring-primary/20"
+  data-title={title}
+  data-description={description ?? ''}
+  data-tags={tags.join(' ')}
+>
+  <div class="w-full aspect-video overflow-hidden relative">
+    {badge ? (
+      <div class="absolute top-3 right-3 bg-white/90 dark:bg-black/50 backdrop-blur px-3 py-1 rounded-full text-xs font-bold z-10">
+        {badge}
+      </div>
+    ) : null}
+
+    <img
+      class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+      src={imageSrc}
+      alt={title}
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+      onerror={`this.onerror=null;this.src='${fallbackImage}';`}
+    />
+  </div>
+
+  <div class="p-6 flex flex-col flex-1">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-gray-400 text-xs font-bold uppercase tracking-wider">{formatDate(pubDate)}</span>
+    </div>
+
+    <h3 class="text-[#0a2a4d] dark:text-white text-2xl font-display font-bold mb-3 group-hover:text-primary transition-colors leading-tight">
+      {title}
+    </h3>
+
+    {description ? (
+      <p class="text-gray-600 dark:text-gray-300 text-sm mb-6 flex-1 line-clamp-3">{description}</p>
+    ) : (
+      <div class="flex-1" />
+    )}
+
+    <div class="flex items-center justify-between gap-3">
+      <a class="text-primary font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all" href={href}>
+        View <span class="material-symbols-outlined text-[18px]">arrow_circle_right</span>
+      </a>
+
+      <div class="flex gap-2 flex-wrap justify-end">
+        {tags.slice(0, 2).map((t) => (
+          <a
+            class="text-[11px] font-bold px-2 py-1 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+            href={`?tag=${encodeURIComponent(t)}`}
+          >
+            {t}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</article>

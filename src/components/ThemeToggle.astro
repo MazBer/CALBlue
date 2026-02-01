@@ -1,0 +1,36 @@
+<button
+  id="theme-toggle"
+  class="h-10 w-10 flex items-center justify-center rounded-full bg-blue-50 dark:bg-white/10 text-primary shadow-sm hover:shadow-md hover:scale-105 transition-transform"
+  type="button"
+  aria-label="Toggle theme"
+>
+  <span id="theme-icon" class="material-symbols-outlined text-[22px] leading-none">dark_mode</span>
+</button>
+
+<script>
+  const key = 'calblue-theme';
+  const root = document.documentElement;
+
+  const icon = document.getElementById('theme-icon');
+  const btn = document.getElementById('theme-toggle');
+
+  const saved = localStorage.getItem(key);
+  const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const initial = saved === 'dark' || saved === 'light' ? saved : preferred;
+
+  if (initial === 'dark') root.classList.add('dark');
+  else root.classList.remove('dark');
+  if (icon) icon.textContent = initial === 'dark' ? 'light_mode' : 'dark_mode';
+  localStorage.setItem(key, initial);
+
+  btn?.addEventListener('click', () => {
+    const isDark = root.classList.contains('dark');
+    const next = isDark ? 'light' : 'dark';
+
+    if (next === 'dark') root.classList.add('dark');
+    else root.classList.remove('dark');
+    if (icon) icon.textContent = next === 'dark' ? 'light_mode' : 'dark_mode';
+
+    localStorage.setItem(key, next);
+  });
+</script>
